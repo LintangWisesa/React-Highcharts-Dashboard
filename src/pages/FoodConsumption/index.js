@@ -25,7 +25,7 @@ const FoodConsumption = () => {
             year: i.split('|')[2],
             // animal: i.split('|')[3], 
             // meat: merge[i].toFixed(2),
-            [i.split('|')[3]]: merge[i].toFixed(2)
+            [i.split('|')[3]]: (merge[i] ? parseFloat(merge[i].toFixed(2)) : Math.round(0, 2))
           }
         });
         
@@ -97,14 +97,14 @@ const FoodConsumption = () => {
                 <TableBody>
                   {foodConsumption.map((item) => (
                     <TableRow key={item.id}>
-                      <TableCell>{item.day}/{item.month}/{item.year}</TableCell> 
-                      <TableCell>{item.BERUANG ? item.BERUANG : '0.00'}</TableCell>
-                      <TableCell>{item.BUAYA ? item.BUAYA : '0.00'}</TableCell>
-                      <TableCell>{item.MACAN ? item.MACAN : '0.00'}</TableCell>
-                      <TableCell>{item.SERIGALA ? item.SERIGALA : '0.00'}</TableCell>
-                      <TableCell>{item.SINGA ? item.SINGA : '0.00'}</TableCell>
-                      <TableCell>{item.ULAR ? item.ULAR : '0.00'}</TableCell>
-                      <TableCell>{item.LAINNYA ? item.LAINNYA : '0.00'}</TableCell> 
+                      <TableCell><b><i>{item.day}/{item.month}/{item.year}</i></b></TableCell> 
+                      <TableCell>{item.BERUANG}</TableCell>
+                      <TableCell>{item.BUAYA}</TableCell>
+                      <TableCell>{item.MACAN}</TableCell>
+                      <TableCell>{item.SERIGALA}</TableCell>
+                      <TableCell>{item.SINGA}</TableCell>
+                      <TableCell>{item.ULAR}</TableCell>
+                      <TableCell>{item.LAINNYA}</TableCell> 
                     </TableRow>
                   ))}
                 </TableBody>
@@ -114,7 +114,7 @@ const FoodConsumption = () => {
           </Box>
         </Grid>
       </Grid>
-      
+
     </div>
   )
 }

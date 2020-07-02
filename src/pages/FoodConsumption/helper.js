@@ -9,13 +9,10 @@ export const generateHighchartsData = (foodConsumption = []) => {
         title: {
             text: ''
         },
-        xAxis: {
-            categories: []
-        },
         yAxis: {
             min: 0,
             title: {
-                text: 'Total fruit consumption'
+                text: 'Total food consumption'
             },
             stackLabels: {
                 enabled: true,
@@ -41,36 +38,32 @@ export const generateHighchartsData = (foodConsumption = []) => {
             shadow: false
         },
         tooltip: {
-            headerFormat: '<b>{point.x}</b><br/>',
+            headerFormat: '<b>Tanggal {point.x}</b><br/>',
             pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
         },
         plotOptions: {
             column: {
                 stacking: 'normal',
                 dataLabels: {
-                    enabled: true
+                    enabled: false
                 }
             }
         },
-        series: []
+        xAxis: {
+            categories: foodConsumption.map((i) => {
+                return i.day + '/' + i.month
+            })
+        },
+        series: [
+            {'name': 'BERUANG', 'data': foodConsumption.map((i) => i.BERUANG)},
+            // {'name': 'BUAYA', 'data': foodConsumption.map((i) => i.BUAYA)},
+            // {'name': 'MACAN', 'data': foodConsumption.map((i) => i.MACAN)},
+            {'name': 'SERIGALA', 'data': foodConsumption.map((i) => i.SERIGALA)},
+            {'name': 'SINGA', 'data': foodConsumption.map((i) => i.SINGA)},
+            {'name': 'ULAR', 'data': foodConsumption.map((i) => i.ULAR)},
+            {'name': 'LAINNYA', 'data': foodConsumption.map((i) => i.LAINNYA)},
+        ]
     }
   
-    if (foodConsumption.length > 0) {
-        options.series = [
-          {
-            name: foodConsumption.map((foodConsumption) => foodConsumption.animal),
-            data: foodConsumption.map((foodConsumption) => foodConsumption.meat)
-          }
-        ]
-        options.categories = () => {
-            var category = foodConsumption.map((i) => {
-                return i.day + '/' + i.month;
-            });
-            category = new Set(category)
-            category = [...category]
-            return category
-        }
-    }
-
     return options
   }
