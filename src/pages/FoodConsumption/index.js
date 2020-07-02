@@ -47,6 +47,17 @@ const FoodConsumption = () => {
         for (var k in properData) {
             finData.push(properData[k]);
         }
+
+        finData.forEach((i) => {
+          if(!("BERUANG" in i)){i['BERUANG'] = 0}
+          if(!("BUAYA" in i)){i['BUAYA'] = 0}
+          if(!("LAINNYA" in i)){i['LAINNYA'] = 0}
+          if(!("MACAN" in i)){i['MACAN'] = 0}
+          if(!("SERIGALA" in i)){i['SERIGALA'] = 0}
+          if(!("SINGA" in i)){i['SINGA'] = 0}
+          if(!("ULAR" in i)){i['ULAR'] = 0}
+        })
+
         setFoodConsumption(finData)
         console.log(finData)
       })

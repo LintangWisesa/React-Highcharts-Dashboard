@@ -84,29 +84,47 @@
 // ============================
 // OK
 
-array = [
-    {'nama': '1', 'usia': 21}, {'nama': '1', 'cat': 22}, {'nama': '1', 'dog': 23},
-    {'nama': '2', 'haha': 21}, {'nama': '2', 'huhu': 23}, {'nama': '3', 'k': 24},
+// array = [
+//     {'nama': '1', 'usia': 21}, {'nama': '1', 'cat': 22}, {'nama': '1', 'dog': 23},
+//     {'nama': '2', 'haha': 21}, {'nama': '2', 'huhu': 23}, {'nama': '3', 'k': 24},
+// ]
+
+// var seen = {};
+// for (var i = 0; i < array.length; i++) {
+//     var cur = array[i];
+//     if (cur.nama in seen) {
+//         var seen_cur = seen[cur.nama];
+//         // console.log(Object.keys(cur))
+//         for (j=0; j<Object.keys(cur).length; j++){
+//             seen_cur[Object.keys(cur)[j]] = cur[Object.keys(cur)[j]]
+//         }
+//     } else {
+//         seen[cur.nama] = cur;
+//     }
+// }
+// console.log(seen)
+
+// var arr = [];
+// for (var k in seen) {
+//     arr.push(seen[k]);
+// }
+
+// console.log(arr)
+
+
+// =================================
+
+data = [
+    {'id': 1, 'nama': 'Andi', 'usia': 20},
+    {'id': 2, 'nama': 'Budi'},
+    {'id': 3, 'nama': 'Caca', 'usia': 21},
+    {'id': 4, 'nama': 'Deni', 'usia': 22},
+    {'id': 5, 'nama': 'Euis'},
 ]
 
-var seen = {};
-for (var i = 0; i < array.length; i++) {
-    var cur = array[i];
-    if (cur.nama in seen) {
-        var seen_cur = seen[cur.nama];
-        // console.log(Object.keys(cur))
-        for (j=0; j<Object.keys(cur).length; j++){
-            seen_cur[Object.keys(cur)[j]] = cur[Object.keys(cur)[j]]
-        }
-    } else {
-        seen[cur.nama] = cur;
-    }
-}
-console.log(seen)
-
-var arr = [];
-for (var k in seen) {
-    arr.push(seen[k]);
-}
-
-console.log(arr)
+data.forEach((i)=>{
+  if (!("usia" in i)){
+      i['usia'] = 0
+  }  
+})
+console.log(data)
