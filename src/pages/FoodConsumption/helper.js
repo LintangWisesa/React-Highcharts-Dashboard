@@ -63,7 +63,12 @@ export const generateHighchartsData = (foodConsumption = []) => {
           }
         ]
         options.categories = () => {
-            foodConsumption.map((foodConsumption) => foodConsumption.day)
+            var category = foodConsumption.map((i) => {
+                return i.day + '/' + i.month;
+            });
+            category = new Set(category)
+            category = [...category]
+            return category
         }
     }
 

@@ -22,19 +22,28 @@ const Home = () => {
         <Box component={Paper} height="100%">
           <Box p={3}>
             <Typography variant="h6" gutterBottom>
-              Sick Animals
+              <i class="fas fa-procedures"></i> Sick Animals
             </Typography>
             <Table>
               <TableHead>
                 <TableRow>
-                  <TableCell>Name</TableCell>
-                  <TableCell>Count</TableCell>
+                  <TableCell>Nama Binatang</TableCell>
+                  <TableCell>Jumlah</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
                 {sickAnimalsData.map((sickAnimal) => (
                   <TableRow key={sickAnimal.id}>
-                    <TableCell>{sickAnimal.name}</TableCell>
+                    <TableCell>
+                      {sickAnimal.name === 'BERUANG' ? <span role="img" aria-label="emopet"> 🐻 </span> : 
+                      (sickAnimal.name === 'BUAYA' ? <span role="img" aria-label="emopet"> 🐊 </span> : 
+                      (sickAnimal.name === 'MACAN' ? <span role="img" aria-label="emopet"> 🐯 </span> : 
+                      (sickAnimal.name === 'SERIGALA' ? <span role="img" aria-label="emopet"> 🐺 </span> : 
+                      (sickAnimal.name === 'SINGA' ? <span role="img" aria-label="emopet"> 🦁 </span> : 
+                      (sickAnimal.name === 'ULAR' ? <span role="img" aria-label="emopet"> 🐍 </span> : ''
+                      )))))}
+                      {sickAnimal.name}
+                    </TableCell>
                     <TableCell>{sickAnimal.count}</TableCell>
                   </TableRow>
                 ))}
