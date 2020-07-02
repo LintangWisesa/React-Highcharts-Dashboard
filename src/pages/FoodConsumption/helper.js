@@ -5,12 +5,20 @@ export const generateHighchartsData = (foodConsumption = []) => {
     const options = {
         chart: {
             type: 'column',
+            // scrollablePlotArea: {
+            //     minWidth: 100,
+            //     scrollPositionX: 0
+            // }
         },
+        colors: ['brown', '#5ED562', 'orange', 'grey', 'yellow', '#00E0FF', 'pink'],
         title: {
             text: ''
         },
         yAxis: {
             min: 0,
+            scrollbar: {
+                enabled: true
+            },
             title: {
                 text: 'Total food consumption'
             },
@@ -57,7 +65,7 @@ export const generateHighchartsData = (foodConsumption = []) => {
         }},
         plotOptions: {
             series: {
-                pointWidth: 45
+                pointWidth: 25
             },
             column: {
                 stacking: 'normal',
@@ -67,12 +75,12 @@ export const generateHighchartsData = (foodConsumption = []) => {
             }
         },
         xAxis: {
+            type: 'category',
             min: 0,
-            max: 15,
-            scrollbar: {
-                enabled: true,
-                showFull: false
-            },
+            // max: 15,
+            // scrollbar: {
+            //     enabled: true
+            // },
             categories: foodConsumption.map((i) => {
                 return i.day + '/' + i.month
             })

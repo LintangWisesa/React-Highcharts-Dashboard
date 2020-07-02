@@ -68,7 +68,7 @@ const FoodConsumption = () => {
       
       <Grid spacing={3} container>
         <Grid xs={12} item>
-          <Box component={Paper} height="100%">
+          <Box xs = {8} component={Paper} height="100%">
             <Box p={3}>
               <Typography variant="h6" gutterBottom>
                 <i class="far fa-chart-bar"></i> Food Consumption - Chart
